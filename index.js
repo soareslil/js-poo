@@ -1,0 +1,1 @@
+console.log('iniciando javascript: programação orientada a objetos')
