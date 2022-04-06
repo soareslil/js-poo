@@ -28,7 +28,7 @@ console.log(cliente2);
 
 
 
-
+//early return para validar cedo suas condicoes linha49, da um stop no metodo
 // O uso de underline _ se faz necessario apenas como um lembrete para os devs de que esse campo/atributo so deve ser
 //  alterado dentro do metodo da classe, nao é boa pratica ainda usar o # para tornar codigos privados
 // molde de conta corrente com metodo sacar(), depositar() aplicavel para todas as contas do banco
@@ -39,15 +39,16 @@ class ContaCorrente{
     sacar(valor){
         if(this._saldo >= valor){
             this._saldo -= valor;
+            return valor;
             }else{
             console.log("Você não tem saldo suficiente para sacar a quantia desejada.");
         }
     }
 
     depositar(valor){
-        if(valor >0){
+        if(valor <=0) return;
             this._saldo += valor;
-        }
+        
     }
 }
 
@@ -56,12 +57,13 @@ contaCorrenteRicardo._saldo = 0;
 console.log('saldo inicial:',contaCorrenteRicardo._saldo);
 contaCorrenteRicardo.depositar(2590);
 contaCorrenteRicardo.agencia = 1001;
-console.log('saldo atual:', contaCorrenteRicardo._saldo);
+console.log('saldo atual após deposito:', contaCorrenteRicardo._saldo);
 contaCorrenteRicardo.sacar(200);
-console.log( 'saldo atualizado:', contaCorrenteRicardo._saldo);
+console.log( 'saldo atualizado após o primeiro saque:', contaCorrenteRicardo._saldo);
 contaCorrenteRicardo.depositar(-100);
-console.log( 'não é possivel fazer deposito negativo:', contaCorrenteRicardo._saldo)
+console.log( 'não é possivel fazer deposito negativo, seu saldo atual é de:', contaCorrenteRicardo._saldo)
 console.log( contaCorrenteRicardo);
 
+const valorSacado = contaCorrenteRicardo.sacar(1000);
 
-
+console.log('Saldo após o valorSacado:',contaCorrenteRicardo);
