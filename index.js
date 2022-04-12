@@ -15,3 +15,4 @@ contaCorrenteRicardo.transferir(valor,conta2);
 
 console.log('ESSE É O CLIENTE 1', contaCorrenteRicardo);
 console.log('ESSE É O CLIENTE 2', conta2);
+console.log('ESSE É O NUMERO DE CONTAS EXISTENTES:', ContaCorrente.numeroDeContas);
